@@ -1,0 +1,14 @@
+<div class="pokemon-container" infinite-scroll [infiniteScrollDistance]="1" (scrolled)="scrollPage()">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+            <div class="col mb-4" *ngFor="let card of pokemonList">
+                <div class="card">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{card.id}}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{card.name}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.pokemon-container {
+  background: rgb(252, 201, 22);
+  background: linear-gradient(152deg, rgba(252, 201, 22, 1) 0%, rgba(38, 113, 185, 1) 70%, rgba(118, 210, 234, 1) 100%);
+}
+
+.card {
+  color: #010101;
+  flex: 1 1 150px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  border-color: white;
+  margin: 10px;
+  font-family: "Bungee";
+  text-transform: capitalize;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.349);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
