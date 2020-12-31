@@ -1,0 +1,57 @@
+<div class="container col-12" *ngIf="pokemon">
+    <h3 [ngStyle]="{ 'color': pokemon.colorType }">Pokédex</h3>
+    <div class="info">
+        <div class="row">
+            <div class="col-6 text-right">
+                <h6>XP</h6>
+            </div>
+            <div class="col-6 text-left">
+                <span>{{pokemon.base_experience}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-right">
+                <h6>Height</h6>
+            </div>
+            <div class="col-6 text-left">
+                <span>{{pokemon.height}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-right">
+                <h6>Weight</h6>
+            </div>
+            <div class="col-6 text-left">
+                <span>{{pokemon.weight}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-right">
+                <h6>Weight</h6>
+            </div>
+            <div class="col-6 text-left">
+                <span>{{pokemon.weight}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-right">
+                <h6>Abilities</h6>
+            </div>
+            <div class="col-6 text-left">
+                <span *ngFor="let abilitie of pokemon.abilities">
+                    <span class="mr-3">{{abilitie.ability.name}}</span>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-right">
+                <h6>Types</h6>
+            </div>
+            <div class="col-6 text-left">
+                <span *ngFor="let type of pokemon.type">
+                    <span class="mr-3">{{type.type.name}}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

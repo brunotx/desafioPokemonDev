@@ -1,0 +1,33 @@
+<div class="container" *ngIf="pokemon" [ngStyle]="{ 'background-color': pokemon.colorType}">
+    <div class="header">
+        <div class="title">
+            <h1>{{pokemon.name}}</h1>
+            <span class="text-right">#{{pokemon.id.toString().padStart(3, '0')}}</span>
+        </div>
+        <div class="gif">
+            <img src="https://projectpokemon.org/images/normal-sprite/{{pokemon.name}}.gif" alt="">
+        </div>
+    </div>
+    <div class="body">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                    [routerLink]="[{outlets: {'modal': ['about', pokemon.id, {queryParams: pokemon | json}]}}]"
+                    role="tab" aria-controls="About" aria-selected="true">About</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                    [routerLink]="[{outlets: {'modal': ['stats', pokemon.id, {queryParams: pokemon | json}]}}]"
+                    role="tab" aria-controls="Stats" aria-selected="false">Stats</a>
+            </li>
+            <li class="nav-item" role="presentation" *ngIf="pokemon.evolutuion.length > 0">
+                <a class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                    [routerLink]="[{outlets: {'modal': ['evolutions', pokemon.id, {queryParams: pokemon | json}]}}]"
+                    role="tab" aria-controls="Evolutions" aria-selected="false">Evolutions</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <router-outlet name="modal"></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,14 @@
 <div class="pokemon-container" infinite-scroll [infiniteScrollDistance]="1" (scrolled)="scrollPage()">
-    <div class="container">
+    <div class="logo">
+        <img src="../../../assets/img/pokemon-logo-2.png" class="card-img-top mt-3" alt="...">
+    </div>
+    <div class="container mt-3">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
             <div class="col mb-4" *ngFor="let card of pokemonList">
-                <div class="card">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{card.id}}.png" class="card-img-top" alt="...">
+                <div class="card" (click)="openModal(card.id)" [routerLink]="[{outlets: {'modal': ['about' , card.id, {queryParams: card | json}]}}]">
+                    <span class="">#{{card.id.toString().padStart(3, '0')}}</span>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{card.id}}.png"
+                        class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">{{card.name}}</h5>
                     </div>

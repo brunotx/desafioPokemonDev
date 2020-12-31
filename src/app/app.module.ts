@@ -7,20 +7,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './screens/home/home.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
+import { PokemonModule } from './screens/pokemon/pokemon.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    PokemonModule,
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
