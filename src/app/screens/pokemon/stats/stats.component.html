@@ -1,0 +1,16 @@
+<div class="container col-12" *ngIf="pokemon">
+    <h3 [ngStyle]="{ 'color': pokemon.colorType }">Base Stats</h3>
+    <div class="info">
+        <div class="row" *ngFor="let stast of pokemon.status">
+            <div class="col-6 text-right">
+                <h6>{{stast.stat.name}}</h6>
+            </div>
+            <div class="col-6 text-left">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': stast.base_stat + '%', 'background-color': pokemon.colorType }"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

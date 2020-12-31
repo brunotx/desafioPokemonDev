@@ -1,0 +1,8 @@
+<div class="container mt-3" *ngIf="pokemon">
+    <div class="card" *ngFor="let evolutions of evolutionList">
+        <img src="https://projectpokemon.org/images/normal-sprite/{{evolutions.name}}.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{evolutions.name}}</h5>
+        </div>
+    </div>
+</div>

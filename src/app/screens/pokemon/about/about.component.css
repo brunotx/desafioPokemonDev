@@ -1,0 +1,21 @@
+.container {
+   padding: 10px;
+}
+
+.container h3 {
+    font-family: "Pokemon";
+    text-transform: capitalize;
+    color: #5FBD58;
+  }
+
+.container h6 {
+    font-family: "Pokemon";
+    text-transform: capitalize;
+    color: #0a0a0a;
+  }
+
+  .container span {
+    font-family: "Pokemon";
+    text-transform: capitalize;
+    color: #505050;
+  }

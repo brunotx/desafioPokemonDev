@@ -1,0 +1,35 @@
+.container {
+  padding: 0;
+}
+
+.header {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pokemon";
+  text-transform: capitalize;
+  color: #3B4CCA;
+}
+
+.body {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.582);
+  padding: 30px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.gif img {
+  width: 150px;
+  height: 150px;
+}
+
+.body a {
+  font-family: "Pokemon";
+  text-transform: capitalize;
+  color: #3B4CCA;
+}
+
+

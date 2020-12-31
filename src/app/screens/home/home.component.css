@@ -3,19 +3,33 @@
   background: linear-gradient(152deg, rgba(252, 201, 22, 1) 0%, rgba(38, 113, 185, 1) 70%, rgba(118, 210, 234, 1) 100%);
 }
 
+.logo {
+  max-width: 1000px;
+  margin: auto;
+}
+
 .card {
-  color: #010101;
-  flex: 1 1 150px;
+  flex: 1 1 120px;
   border-radius: 20px;
   padding: 5px 10px;
   border-color: white;
   margin: 10px;
-  font-family: "Bungee";
-  text-transform: capitalize;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.349);
   cursor: pointer;
 }
 
+.card h5 {
+  font-family: "Pokemon";
+  text-transform: capitalize;
+  color: #3B4CCA;
+}
+
 .card:hover {
   transform: scale(1.05);
+}
+
+span {
+  font-family: "Pokemon";
+  text-transform: capitalize;
+  color: #3B4CCA;
 }
