@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { noop } from 'rxjs';
 import { PokemonModel } from 'src/app/model/pokemonModel';
 
 @Component({
@@ -16,8 +17,10 @@ export class EvolutionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.pokemon = JSON.parse(params.queryParams);
-      this.evolutionList = this.pokemon.evolutuion;
-    });
+      if (params !== undefined) {
+        this.pokemon = JSON.parse(params.queryParams || null);
+          this.evolutionList = this.pokemon !== null  && this.pokemon !== undefined ? this.pokemon.evolutuion : [];
+      }
+    }, noop, noop);
   }
 }
