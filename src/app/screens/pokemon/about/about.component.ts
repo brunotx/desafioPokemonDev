@@ -15,7 +15,9 @@ export class AboutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.pokemon = JSON.parse(localStorage.getItem('currenctPokemon'));
+    if (localStorage.getItem('currenctPokemon') !== undefined) {
+      this.pokemon = JSON.parse(localStorage.getItem('currenctPokemon' || null));
+    }
   }
 
 }
