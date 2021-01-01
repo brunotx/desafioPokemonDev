@@ -32,4 +32,18 @@
   color: #3B4CCA;
 }
 
+.gif {
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background-color: #f1f1f146;
+  z-index: 2;
+}
 

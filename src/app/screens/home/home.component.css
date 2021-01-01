@@ -1,6 +1,7 @@
 .pokemon-container {
+  min-height: 100vh;
   background: rgb(252, 201, 22);
-  background: linear-gradient(152deg, rgba(252, 201, 22, 1) 0%, rgba(38, 113, 185, 1) 70%, rgba(118, 210, 234, 1) 100%);
+  background: linear-gradient(152deg, #fcc916 0%, rgba(38, 113, 185, 1) 70%, rgba(118, 210, 234, 1) 100%);
 }
 
 .logo {
@@ -18,7 +19,7 @@
   cursor: pointer;
 }
 
-.card h5 {
+h5 {
   font-family: "Pokemon";
   text-transform: capitalize;
   color: #3B4CCA;
@@ -31,5 +32,28 @@
 span {
   font-family: "Pokemon";
   text-transform: capitalize;
+  color: #3B4CCA;
+}
+
+
+.btn {
+  background-color: #3B4CCA;
+  font-family: "Pokemon";
+  text-transform: capitalize;
+  color: #fcc916;
+}
+
+.btn :hover {
+  color: #3B4CCA;
+  background-color: #fcc916;
+}
+
+::placeholder {
+  font-family: "Pokemon";
+  color: #3B4CCA;
+} 
+
+input {
+  font-family: "Pokemon";
   color: #3B4CCA;
 }
