@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { noop } from 'rxjs';
+import { noop, Subscription } from 'rxjs';
 import { PokemonModel } from 'src/app/model/pokemonModel';
 
 @Component({
@@ -8,14 +8,19 @@ import { PokemonModel } from 'src/app/model/pokemonModel';
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.css']
 })
-export class StatsComponent implements OnInit {
+export class StatsComponent implements OnInit, OnDestroy {
 
   pokemon: PokemonModel;
+  unsubscribe_: Subscription;
 
   constructor(private route: ActivatedRoute) { }
 
+  ngOnDestroy(): void {
+    if (this.unsubscribe_ !== undefined) { this.unsubscribe_.unsubscribe(); }
+  }
+
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.unsubscribe_ = this.route.params.subscribe(params => {
       if (params !== undefined) {
         this.pokemon = JSON.parse(params.queryParams || null)
       }

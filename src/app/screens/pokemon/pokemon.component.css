@@ -47,3 +47,11 @@
   z-index: 2;
 }
 
+.body ul {
+  border: 0;
+}
+
+.nav a {
+  border: 0;
+}
+
