@@ -44,7 +44,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public scrollPage() {
-    console.log('parou nada')
     this.pokemonService.getNextPagePokemon(this.nextPage).toPromise().then(
       (data) => {
         this.pokemonInfo(data);

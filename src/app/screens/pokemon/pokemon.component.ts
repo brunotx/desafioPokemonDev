@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { noop, zip, concat } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { noop, zip, concat, Subscription } from 'rxjs';
 import { concatMap, map, switchMap, tap } from 'rxjs/operators';
 import { PokemonModel, TYPE_COLOURS } from 'src/app/model/pokemonModel';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -9,19 +9,25 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   templateUrl: './pokemon.component.html',
   styleUrls: ['./pokemon.component.css']
 })
-export class PokemonComponent implements OnInit {
+export class PokemonComponent implements OnInit, OnDestroy {
 
   pokemonId: number;
   pokemon: PokemonModel;
+  unsubscribe_: Subscription;
+
 
   constructor(private pokemonService: PokemonService) { }
+
+  ngOnDestroy(): void {
+    if (this.unsubscribe_ !== undefined) { this.unsubscribe_.unsubscribe(); }
+  }
 
   ngOnInit(): void {
 
     if (this.pokemonId !== undefined && this.pokemonId !== null) {
       const info$ = this.pokemonService.getInfoPokemon(this.pokemonId);
       const species$ = this.pokemonService.getSpeciesPokemon(this.pokemonId);
-      species$.pipe(
+      this.unsubscribe_ = species$.pipe(
         switchMap(species => {
           const evolution$ = this.pokemonService.getEvolutionsPokemon(species.evolution_chain.url);
           const concat$ = zip(info$, species$, evolution$)
