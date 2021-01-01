@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { noop, zip, concat, Subscription } from 'rxjs';
-import { concatMap, map, switchMap, tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import { zip, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { PokemonModel, TYPE_COLOURS } from 'src/app/model/pokemonModel';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -16,7 +17,7 @@ export class PokemonComponent implements OnInit, OnDestroy {
   unsubscribe_: Subscription;
 
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, private route: ActivatedRoute) { }
 
   ngOnDestroy(): void {
     if (this.unsubscribe_ !== undefined) { this.unsubscribe_.unsubscribe(); }
